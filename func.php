@@ -1,12 +1,12 @@
 <?php
 #reff dSsoR46h OnESJ2gB
-function reff($name, $phone, $email){
+function reff($name, $phone, $email, $reff){
   $ch = curl_init();
 
   curl_setopt($ch, CURLOPT_URL, 'https://marketing-api.liveon.id/referral.php');
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt($ch, CURLOPT_POST, 1);
-  curl_setopt($ch, CURLOPT_POSTFIELDS, "name=$name&email=$email&phone=$phone&plan=&insta_plan=&provider=&refrr_code=OnESJ2gB&utm_source=&utm_medium=&utm_campaign=&utm_content=&utm_term=");
+  curl_setopt($ch, CURLOPT_POSTFIELDS, "name=$name&email=$email&phone=$phone&plan=&insta_plan=&provider=&refrr_code=$reff&utm_source=&utm_medium=&utm_campaign=&utm_content=&utm_term=");
   curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
 
   $headers = array();
