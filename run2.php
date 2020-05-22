@@ -19,21 +19,18 @@ $users = file_get_contents('https://aldmlc.com/user.php?qty=1&domain=xsingles.si
 $js = json_decode($users, true);
 $firstname = $js['result']['0']['firstname'];
 $lastname = $js['result']['0']['lastname'];
-// $name = $firstname." ".$lastname;
 $name = nama();
 $phone = $js['result']['0']['phone'];
 $domain = "xsingles.site";
-// $mail = $firstname.$lastname.rand(10,1999);
 $mail = strtolower(str_replace(" ", "", $name).mt_rand(1000, 9999));
 $email = $mail."@".$domain;
-$reff = reff($name, $phone, $email, $reff);
-if (preg_match('/true/i', $reff)) {
+$execute = reff($name, $phone, $email, $reff);
+if (preg_match('/true/i', $execute)) {
   echo color($color = "green" , "".date('H:i:s')." | Success Register $name\n");
   do{
     echo color($color = "blue" , "".date('H:i:s')." | Getting Verify Email...");
     echo "\r\r";
     $getmail = get_mail($domain, $mail);
-    // $check = strpos($getmail, "Aktivasi Akun Tokopedia");
     $check = get_between($getmail, 'display: block" rel="nofollow">', '</a>');
 
     if(preg_match('/Konfirmasi Email/i', $check)){
@@ -41,9 +38,6 @@ if (preg_match('/true/i', $reff)) {
       echo color($color = "green" , "Success!\n");
       $success = 1;
     }else{
-      // echo color($color = "red" , " Failed!\n");
-      // echo color($color = "blue" , "".date('H:i:s')." | Waiting 5 seconds!!\n");
-      // sleep(5);
       $success = 0;
     }
   }while($success==0);
@@ -57,7 +51,7 @@ if (preg_match('/true/i', $reff)) {
   }
 
 } else {
-  echo color($color = "red" , "".date('H:i:s')." | Failed Register $reff\n");
+  echo color($color = "red" , "".date('H:i:s')." | Failed Register $execute\n");
 }
 }
 ?>
