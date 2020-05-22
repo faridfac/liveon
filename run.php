@@ -2,15 +2,15 @@
 date_default_timezone_set("Asia/Jakarta");
 require 'func.php';
 menu:
-echo 'Choice Reff Code:\n[1] dSsoR46h\n[2] OnESJ2gB\n';
+echo "Choice Reff Code:\n[1] dSsoR46h\n[2] OnESJ2gB\n";
 echo "[?] Choice: ";
 $choice = trim(fgets(STDIN));
 if($choice = "1"){
  $reff = "dSsoR46h";
- echo color($color = "blue" , "".date('H:i:s')." | Using refferal code $reff\n"); 
+ echo color($color = "blue" , "".date('H:i:s')." | Using refferal code $reff\n");
 } else if ($choice = "2"){
   $reff = "OnESJ2gB";
-  echo color($color = "blue" , "".date('H:i:s')." | Using refferal code $reff\n"); 
+  echo color($color = "blue" , "".date('H:i:s')." | Using refferal code $reff\n");
 } else {
   goto menu;
 }
