@@ -1,6 +1,19 @@
 <?php
 date_default_timezone_set("Asia/Jakarta");
 require 'func.php';
+menu:
+echo 'Menu:\n[1] dSsoR46h\n[2] OnESJ2gB\n';
+echo "[?] Choice: ";
+$choice = trim(fgets(STDIN));
+if($choice = "1"){
+ $reff = "dSsoR46h";
+ echo color($color = "blue" , "".date('H:i:s')." | Using refferal code $reff\n"); 
+} else if ($choice = "2"){
+  $reff = "OnESJ2gB";
+  echo color($color = "blue" , "".date('H:i:s')." | Using refferal code $reff\n"); 
+} else {
+  goto menu;
+}
 while (true) {
 $users = file_get_contents('https://aldmlc.com/user.php?qty=1&domain=xsingles.site');
 $js = json_decode($users, true);
@@ -13,7 +26,7 @@ $domain = "xsingles.site";
 // $mail = $firstname.$lastname.rand(10,1999);
 $mail = strtolower(str_replace(" ", "", $name).mt_rand(1000, 9999));
 $email = $mail."@".$domain;
-$reff = reff($name, $phone, $email);
+$reff = reff($name, $phone, $email, $reff);
 if (preg_match('/true/i', $reff)) {
   echo color($color = "green" , "".date('H:i:s')." | Success Register $name\n");
   do{
@@ -38,9 +51,9 @@ if (preg_match('/true/i', $reff)) {
   # Verify
   $verify = verify($linkreff);
   if(preg_match('/KONFIRMASI EMAIL BERHASIL/i', $verify)){
-    echo color($color = "green" , "".date('H:i:s')." | Konfirmasi email berhasil\n");
+    echo color($color = "green" , "".date('H:i:s')." | Confirmation email success\n");
   } else {
-    echo color($color = "red" , "".date('H:i:s')." | Konfirmasi email gagal\n");
+    echo color($color = "red" , "".date('H:i:s')." | Confirmation email failed\n");
   }
 
 } else {
