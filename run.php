@@ -25,9 +25,8 @@ $phone = $js['result']['0']['phone'];
 $domain = "xsingles.site";
 // $mail = $firstname.$lastname.rand(10,1999);
 $mail = strtolower(str_replace(" ", "", $name).mt_rand(1000, 9999));
-$reff = reff($name, $phone, $email, $reff);
-$reff = reff($name, $phone, $email);
-if (preg_match('/true/i', $reff)) {
+$execute = reff($name, $phone, $email, $reff);
+if (preg_match('/true/i', $execute)) {
   echo color($color = "green" , "".date('H:i:s')." | Success Register $name\n");
   do{
     echo color($color = "blue" , "".date('H:i:s')." | Getting Verify Email...");
@@ -58,7 +57,7 @@ if (preg_match('/true/i', $reff)) {
   }
 
 } else {
-  echo color($color = "red" , "".date('H:i:s')." | Failed Register $reff\n");
+  echo color($color = "red" , "".date('H:i:s')." | Failed Register $execute\n");
 }
 }
 ?>
