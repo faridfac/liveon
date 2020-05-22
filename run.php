@@ -18,18 +18,18 @@ if (preg_match('/true/i', $reff)) {
   echo color($color = "green" , "".date('H:i:s')." | Success Register $name\n");
   do{
     echo color($color = "blue" , "".date('H:i:s')." | Getting Verify Email...");
+    echo "\r\r";
+    sleep(10);
     $getmail = get_mail($domain, $mail);
     // $check = strpos($getmail, "Aktivasi Akun Tokopedia");
     $check = get_between($getmail, 'display: block" rel="nofollow">', '</a>');
 
     if(preg_match('/Konfirmasi Email/i', $check)){
       $linkreff = get_between($getmail, 'href="https://marketing-api.liveon.id/', '" target="_blank" style="mso');
-      echo color($color = "green" , " Success!\n");
+      echo color($color = "green" , "Success!\n");
       $success = 1;
     }else{
-      echo color($color = "red" , " Failed!\n");
-      echo color($color = "blue" , "".date('H:i:s')." | Waiting 10 seconds!!\n");
-      sleep(10);
+      // echo color($color = "red" , " Failed!\n");
       $success = 0;
     }
   }while($success==0);
@@ -38,8 +38,8 @@ if (preg_match('/true/i', $reff)) {
   $verify = verify($linkreff);
   if(preg_match('/KONFIRMASI EMAIL BERHASIL/i', $verify)){
     echo color($color = "green" , "".date('H:i:s')." | Konfirmasi email berhasil\n");
-    echo color($color = "blue" , "".date('H:i:s')." | Waiting 30 seconds!!\n\n");
-    sleep(30);
+    echo color($color = "blue" , "".date('H:i:s')." | Waiting 15 seconds!!\n\n");
+    sleep(15);
   } else {
     echo color($color = "red" , "".date('H:i:s')." | Konfirmasi email gagal\n");
   }
