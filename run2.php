@@ -2,7 +2,7 @@
 date_default_timezone_set("Asia/Jakarta");
 require 'func.php';
 menu:
-echo 'Menu:\n[1] dSsoR46h\n[2] OnESJ2gB\n';
+echo 'Choice Reff Code:\n[1] dSsoR46h\n[2] OnESJ2gB\n';
 echo "[?] Choice: ";
 $choice = trim(fgets(STDIN));
 if($choice = "1"){
